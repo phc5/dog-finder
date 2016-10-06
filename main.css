@@ -1,0 +1,22 @@
+
+body {
+    background-color: #e0ffff;
+}
+
+#map {
+	height: 500px;
+	width: 500px;
+}
+
+.result_container {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.results p {
+	height: 150px;
+	width: 150px;
+	float:left;
+}
+
