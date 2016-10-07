@@ -29,10 +29,8 @@ h1 {
 
 #map {
 	display: none;
-	height: 500px;
-	width: 550px;
-	left: 0;
-	margin-left: 25px;
+	height: 400px;
+	width: 400px;
 }
 
 .container {

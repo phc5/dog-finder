@@ -115,7 +115,7 @@ function watchSubmit() {
 		e.preventDefault();
 		var breed = $(this).find('.breed').val();
 		var zipCode = $(this).find('.zip').val();
-		$('#map').show();
+		// $('#map').show();
 		deleteMarkers(markers)
 		getLongLatInitial(zipCode, setMap);
 		getDataFromPetFinder(breed, zipCode, displayResults);
@@ -145,8 +145,8 @@ function initializeMap() {
 }
 
 //handle scrolling, map will scroll with page
-$(window).scroll(function(){
-  $("#map").css({"margin-top": ($(window).scrollTop()) + "px", "margin-left":($(window).scrollLeft()+25) + "px"});
-});
+// $(window).scroll(function(){
+//   $("#map").css({"margin-top": ($(window).scrollTop()) + "px", "margin-left":($(window).scrollLeft()+25) + "px"});
+// });
 
 $(function(){watchSubmit();});
