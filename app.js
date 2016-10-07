@@ -45,6 +45,7 @@ function getLongLatMarker(zip, callback, hoverText) {
 	});
 }
 
+//callback: will populate the list of breeds available
 function populateList(data) {
 	var resultElement = '';
 	data.petfinder.breeds.breed.forEach(function(dog) {
@@ -53,7 +54,7 @@ function populateList(data) {
 	$('.breed').append(resultElement);
 }
 
-//display the dogs with their photo, name, zipcode, and email
+//callback: display the dogs with their photo, name, zipcode, and email
 //also set markers on the map
 function displayResults(data) {
 	var resultElement = '';
@@ -85,7 +86,7 @@ function displayResults(data) {
 	$('.results').html(resultElement)
 }
 
-//add markers at correct lat and long and push them into markers array
+//callback: add markers at correct lat and long and push them into markers array
 //also event listener to listen for click on marker to highlight dogs in marker.
 function addMarkers(data, hoverText, zip) {
 	var loc = data.results[0];
@@ -117,7 +118,7 @@ function deleteMarkers(markers) {
 	markers = [];
 }
 
-//set the map to zipcode taken from submit form.
+//callback: set the map to zipcode taken from submit form.
 function setMap(data) {
 	var loc = data.results[0];
 	map.setCenter(new google.maps.LatLng(loc.geometry.location.lat, loc.geometry.location.lng));
