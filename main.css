@@ -7,10 +7,19 @@ img {
 	border-radius: 5px;
 }
 
+p img {
+	float:right;
+	padding-right:50px;
+}
+
 #map {
-	display:none;
+	position: fixed;
+	display: none;
 	height: 500px;
-	width: 600px;
+	width: 550px;
+	left: 0;
+	margin-left: 25px;
+
 }
 
 .container {
@@ -19,13 +28,15 @@ img {
 
 .result_container {
 	margin: 0 auto;
-	float: left;
-	text-align: center;
+	float: right;
+	margin-bottom: 50px;
+	width: 70%;
+	padding-left: 60px;
 }
 
 .results p {
 	height: 175px;
-	width: 150px;
+	width: 250px;
 	float:left;
 }
 

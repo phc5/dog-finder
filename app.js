@@ -44,7 +44,7 @@ function displayResults(data) {
 		data.petfinder.pets.pet.forEach(function(dog) {
 			if (dog.media.photos) {
 				resultElement += '<p class=zip' + dog.contact.zip.$t + '><img src="' + dog.media.photos.photo[0].$t + '"><br>Name: ' + dog.name.$t + '<br>Age: ' + 
-				dog.age.$t + '<br>Zip: ' + dog.contact.zip.$t + '</p>';
+				dog.age.$t + '<br>Zip: ' + dog.contact.zip.$t + '<br>Email: ' + dog.contact.email.$t + '</p>';
 				var zip = dog.contact.zip.$t;
 				if (dogZip[zip]) {
 					dogZip[zip] += ", " + dog.name.$t;
@@ -66,7 +66,7 @@ function displayResults(data) {
 }
 
 
-function addMarkers(data, hoverText,zip) {
+function addMarkers(data, hoverText, zip) {
 	var loc = data.results[0];
 	var myLatlng = new google.maps.LatLng(loc.geometry.location.lat, loc.geometry.location.lng);
 	marker = new google.maps.Marker({
