@@ -8,6 +8,7 @@ var map;
 var marker;
 var markers = [];
 
+//get data using PetFinder API
 function getDataFromPetFinder(dogBreed, zipCode, callback) {
 	var query = {
 		animal: 'dog',
@@ -17,6 +18,8 @@ function getDataFromPetFinder(dogBreed, zipCode, callback) {
 	$.getJSON(PET_BASE_URL, query, callback);
 }
 
+//get the longitude and latitude of a zipcode using google maps API
+//use this for setting the map to zipcode user submits
 function getLongLatInitial(zip, callback) {
 	var query = {
 		address: zip,
@@ -25,6 +28,8 @@ function getLongLatInitial(zip, callback) {
 	$.getJSON(LAT_LONG_URL, query, setMap);
 }
 
+//get the longitude and latitude of a zipcode using google maps API
+//use this to set markers at long and lat of zipcode
 function getLongLatMarker(zip, callback, hoverText) {
 	var query = {
 		address: zip,
@@ -35,6 +40,8 @@ function getLongLatMarker(zip, callback, hoverText) {
 	});
 }
 
+//display the dogs with their photo, name, zipcode, and email
+//also set markers on the map
 function displayResults(data) {
 	var resultElement = '';
 	var imageURL = '';
@@ -65,7 +72,8 @@ function displayResults(data) {
 	$('.results').html(resultElement)
 }
 
-
+//add markers at correct lat and long and push them into markers array
+//also event listener to listen for click on marker to highlight dogs in marker.
 function addMarkers(data, hoverText, zip) {
 	var loc = data.results[0];
 	var myLatlng = new google.maps.LatLng(loc.geometry.location.lat, loc.geometry.location.lng);
@@ -82,35 +90,26 @@ function addMarkers(data, hoverText, zip) {
 	markers.push(marker);
 }
 
+//we set markers in addMarkers but use this to remove them in deleteMarkers()
 function setMapOnAll(map) {
 	for(let i = 0; i < markers.length; i++) {
 		markers[i].setMap(map);
 	}
 }
 
+//delete all the markers on the map
 function deleteMarkers(markers) {
 	setMapOnAll(null);
 	markers = [];
 }
 
+//set the map to zipcode taken from submit form.
 function setMap(data) {
 	var loc = data.results[0];
 	map.setCenter(new google.maps.LatLng(loc.geometry.location.lat, loc.geometry.location.lng));
 }
 
-function displayMap() {
-	document.getElementById('map').style.display="block";
-	initializeMap();
-}
-
-function initializeMap() {
-	var myOptions = {
-		zoom: 8,
-		center: new google.maps.LatLng(0.0, 0.0),
-	}
-	map = new google.maps.Map(document.getElementById('map'), myOptions);
-}
-
+//submit button event listener
 function watchSubmit() {
 	$('.js-search-form').submit(function(e) {
 		e.preventDefault();
@@ -123,6 +122,7 @@ function watchSubmit() {
 	});
 }
 
+//initialize map on homepage (default to hidden)
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: 33.7073908, lng: -117.7666567},
@@ -130,7 +130,23 @@ function initMap() {
 	});
 }
 
+//displayMap() called when submit button is clicked (inline property in HTML)
+function displayMap() {
+	document.getElementById('map').style.display="block";
+	initializeMap();
+}
+//found on stackoverflow to prevent map from displaying as empty map.
+function initializeMap() {
+	var myOptions = {
+		zoom: 8,
+		center: new google.maps.LatLng(0.0, 0.0),
+	}
+	map = new google.maps.Map(document.getElementById('map'), myOptions);
+}
+
+//handle scrolling, map will scroll with page
 $(window).scroll(function(){
   $("#map").css({"margin-top": ($(window).scrollTop()) + "px", "margin-left":($(window).scrollLeft()+25) + "px"});
 });
+
 $(function(){watchSubmit();});
