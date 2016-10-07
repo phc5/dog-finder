@@ -12,6 +12,10 @@ p img {
 	padding-right:50px;
 }
 
+p {
+	word-wrap: break-word;
+}
+
 #map {
 	position: absolute;
 	display: none;
