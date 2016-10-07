@@ -3,6 +3,7 @@
 // secret: bf32754638b3c39d17dcf25495090279
 
 var PET_BASE_URL = 'https://api.petfinder.com/pet.find?format=json&callback=?&key=64568269689a7b256e759afcc3c0a52b';
+var PET_BREED_URL = 'https://api.petfinder.com/breed.list?format=json&callback=?&key=64568269689a7b256e759afcc3c0a52b&animal=dog';
 var LAT_LONG_URL = 'https://maps.googleapis.com/maps/api/geocode/json';
 var map;
 var marker;
@@ -16,6 +17,10 @@ function getDataFromPetFinder(dogBreed, zipCode, callback) {
 		location: zipCode,
 	}
 	$.getJSON(PET_BASE_URL, query, callback);
+}
+
+function getBreedList(callback) {
+	$.getJSON(PET_BREED_URL, callback);
 }
 
 //get the longitude and latitude of a zipcode using google maps API
@@ -38,6 +43,15 @@ function getLongLatMarker(zip, callback, hoverText) {
 	$.getJSON(LAT_LONG_URL, query, function(data) {
 		callback(data, hoverText,zip);
 	});
+}
+
+function populateList(data) {
+	var resultElement = '';
+	data.petfinder.breeds.breed.forEach(function(dog) {
+		resultElement += '<option>' + dog.$t + '</option>';
+	});
+	console.log(resultElement);
+	$('.breed').append(resultElement);
 }
 
 //display the dogs with their photo, name, zipcode, and email
@@ -127,6 +141,7 @@ function initMap() {
 		center: {lat: 33.7073908, lng: -117.7666567},
 		zoom: 10
 	});
+	getBreedList(populateList);
 }
 
 //displayMap() called when submit button is clicked (inline property in HTML)
