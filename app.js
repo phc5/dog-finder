@@ -2,8 +2,8 @@
 //petfinder key: b46b11a8ca45dd7cc2a391730e286cca, 64568269689a7b256e759afcc3c0a52b
 // secret: bf32754638b3c39d17dcf25495090279
 
-var PET_BASE_URL = 'http://api.petfinder.com/pet.find?format=json&callback=?&key=64568269689a7b256e759afcc3c0a52b';
-var LAT_LONG_URL = 'http://maps.googleapis.com/maps/api/geocode/json';
+var PET_BASE_URL = 'https://api.petfinder.com/pet.find?format=json&callback=?&key=64568269689a7b256e759afcc3c0a52b';
+var LAT_LONG_URL = 'https://maps.googleapis.com/maps/api/geocode/json';
 var map;
 var marker;
 var markers = [];
@@ -50,7 +50,7 @@ function displayResults(data) {
 	if (data.petfinder.pets.pet) {
 		data.petfinder.pets.pet.forEach(function(dog) {
 			if (dog.media.photos) {
-				resultElement += '<p class="thumbnail zip' + dog.contact.zip.$t + '"><img src="' + dog.media.photos.photo[0].$t + '"><span>Name: ' + dog.name.$t + '<br>Age: ' + 
+				resultElement += '<p class="thumbnail zip' + dog.contact.zip.$t + '"><a target="_blank" href="' + dog.media.photos.photo[2].$t + '"><img src="' + dog.media.photos.photo[0].$t + '"></a><span>Name: ' + dog.name.$t + '<br>Age: ' + 
 				dog.age.$t + '<br>Zip: ' + dog.contact.zip.$t + '<br>Email: ' + dog.contact.email.$t + '</span></p>';
 				var zip = dog.contact.zip.$t;
 				if (dogZip[zip]) {
@@ -61,7 +61,7 @@ function displayResults(data) {
 			}
 		})
 	} else {
-		resultElement += '<p>No results</p>';
+		resultElement += '<p class="thumbnail no_results">No results. Please enter a valid dog breed.</p>';
 	}
 	
 	var unique = Object.keys(dogZip);

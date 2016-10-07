@@ -102,3 +102,7 @@ p {
 	border: solid 3px #5f9ea0;
 }
 
+.no_results {
+	text-align: center;
+	font-size: 30px;
+}
