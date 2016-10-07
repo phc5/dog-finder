@@ -6,7 +6,7 @@
   background-size: cover;
 }*/
 body {
-	background-color: #e0ffff;
+	background-color: #afeeee;
 }
 
 img {
@@ -19,13 +19,35 @@ p img {
 
 p {
 	font-family: 'PT Sans Caption', sans-serif;
-	/*word-wrap: break-word;*/
+	word-wrap: break-word;
 	margin-right: 10px;
 }
 
-h1 {
-  font-color: #fff;
-  font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+.jumbotron h1 {
+  	font-family: 'Baloo Da', cursive;
+	color: #fff;
+	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888;
+	margin-right: 20px;
+}
+
+.paw {
+	-ms-transform: rotate(-25deg); /* IE 9 */
+    -webkit-transform: rotate(-25deg); /* Chrome, Safari, Opera */
+    transform: rotate(-25deg);
+    margin-top: -36px;
+    height: 90px;
+    margin-left: -105px;
+}
+
+.paw-grey {
+	-ms-transform: rotate(-25deg); /* IE 9 */
+    -webkit-transform: rotate(-25deg); /* Chrome, Safari, Opera */
+    transform: rotate(-25deg);
+    margin-top: -30px;
+}
+
+.search>p {
+	color: #696969;
 }
 
 #map {
@@ -33,6 +55,8 @@ h1 {
 	height: 600px;
 	width: 500px;
 	margin: auto;
+	border: solid 1px #afeeee;
+	border-radius: 5px;
 }
 
 .container {
@@ -40,8 +64,14 @@ h1 {
 }
 
 .jumbotron {
-	background-color: #e0ffff;
+	background-color: #afeeee;
     color: black;
+
+}
+
+.btn {
+	background-color: #5f9ea0;
+	color: white;
 }
 
 .result_container {
@@ -64,6 +94,11 @@ h1 {
 }
 
 .highlight {
-	background-color: yellow;
+	background-color: #7fffd4;
+}
+
+.thumbnail {
+	border-radius: 5px;
+	border: solid 3px #5f9ea0;
 }
 
