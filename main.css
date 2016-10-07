@@ -13,13 +13,12 @@ p img {
 }
 
 #map {
-	position: fixed;
+	position: absolute;
 	display: none;
 	height: 500px;
 	width: 550px;
 	left: 0;
 	margin-left: 25px;
-
 }
 
 .container {
@@ -35,7 +34,7 @@ p img {
 }
 
 .results p {
-	height: 175px;
+	height: 140px;
 	width: 250px;
 	float:left;
 }
@@ -44,3 +43,7 @@ p img {
 	border: 2px solid black;
 }
 
+
+.map_cont {
+	padding-left: 100px;
+}

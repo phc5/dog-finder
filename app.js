@@ -130,4 +130,7 @@ function initMap() {
 	});
 }
 
+$(window).scroll(function(){
+  $("#map").css({"margin-top": ($(window).scrollTop()) + "px", "margin-left":($(window).scrollLeft()+25) + "px"});
+});
 $(function(){watchSubmit();});
