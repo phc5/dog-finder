@@ -28,7 +28,6 @@ h1 {
 }
 
 #map {
-	position: absolute;
 	display: none;
 	height: 500px;
 	width: 550px;
@@ -40,12 +39,18 @@ h1 {
 	width: 1800px;
 }
 
+.jumbotron {
+	background-color: #e0ffff;
+    color: black;
+}
+
 .result_container {
-	margin: 0 auto;
+	/*margin: 0 auto;
 	float: right;
 	margin-bottom: 50px;
 	width: 70%;
-	padding-left: 60px;
+	padding-left: 60px;*/
+	display: inline-block;
 }
 
 .results p {
@@ -54,11 +59,11 @@ h1 {
 	float:left;
 }
 
+.results {
+	display:inline-block;
+}
+
 .highlight {
 	border: 2px solid black;
 }
 
-
-.map_cont {
-	padding-left: 100px;
-}
