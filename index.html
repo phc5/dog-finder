@@ -5,38 +5,35 @@
   <title>Adopt a Dog</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-  .jumbotron {
+    .jumbotron {
       background-color: #e0ffff;
       color: black;
-  }
+    }
   </style>
-  </head>
-  <body>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="search jumbotron text-center" >
+     <h1>Adopt A Dog</h1>
+     <p>Find Adoptable Dogs in Your Area</p>
+     <form class="form-inline  js-search-form">
+       <input type="text" class="form-control breed" size="15" placeholder="Breed" required>
+       <input type="text" class="form-control zip" size="10" placeholder="Zip Code" required>
+       <button type="submit" class="btn btn-danger">Adopt a Dog!</button>
+     </form>
+   </div>
 
-    <div class="container">
-        <div class="search jumbotron text-center" >
-         <h1>Adopt A Dog</h1>
-         <p>Find Adoptable Dogs in Your Area</p>
-          <form class="form-inline  js-search-form">
-           <input type="text" class="form-control breed" size="15" placeholder="Breed" required>
-           <input type="text" class="form-control zip" size="10" placeholder="Zip Code" required>
-           <button type="submit" class="btn btn-danger">Adopt a Dog!</button>
-          </form>
-        </div>
+   <div class="result_container col-md-8"><div class="results"></div></div>     
+   <div id="map"></div>
+ </div>
 
-    <div class="result_container"><div class="results"></div></div>     
-    
-
-  <div id="map"></div>
-  </div>
-  
-  <script type="text/javascript" src="app.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.20&key=AIzaSyAxU3qsOBmOTtQyL0l-_Bpj1OA44YkNI3E&callback=initMap"></script>
-  </body>
+ <script type="text/javascript" src="app.js"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?v=3.20&key=AIzaSyAxU3qsOBmOTtQyL0l-_Bpj1OA44YkNI3E&callback=initMap"></script>
+</body>
 </html>

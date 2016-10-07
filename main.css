@@ -1,6 +1,6 @@
 
 body {
-    background-color: #e0ffff;
+	background-color: #e0ffff;
 }
 
 img {
@@ -9,8 +9,7 @@ img {
 
 #map {
 	height: 500px;
-	width: 500px;
-	float:right;
+	width: 600px;
 }
 
 .container {
@@ -18,7 +17,6 @@ img {
 }
 
 .result_container {
-	width: 1200px;
 	margin: 0 auto;
 	float: left;
 	text-align: center;

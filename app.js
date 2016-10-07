@@ -70,9 +70,9 @@ function addMarkers(data, hoverText,zip) {
 	var loc = data.results[0];
 	var myLatlng = new google.maps.LatLng(loc.geometry.location.lat, loc.geometry.location.lng);
 	marker = new google.maps.Marker({
-    	map: map,
-    	position: myLatlng,
-    	title: hoverText
+		map: map,
+		position: myLatlng,
+		title: hoverText
 	});
 	marker.addListener('click', function() {
 		var selector = 'p.zip' + zip;
@@ -110,9 +110,9 @@ function watchSubmit() {
 }
 
 function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 33.7073908, lng: -117.7666567},
-          zoom: 8
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: 33.7073908, lng: -117.7666567},
+		zoom: 10
 	});
 }
 
