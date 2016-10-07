@@ -50,7 +50,6 @@ function populateList(data) {
 	data.petfinder.breeds.breed.forEach(function(dog) {
 		resultElement += '<option>' + dog.$t + '</option>';
 	});
-	console.log(resultElement);
 	$('.breed').append(resultElement);
 }
 
@@ -96,6 +95,7 @@ function addMarkers(data, hoverText, zip) {
 		position: myLatlng,
 		title: hoverText
 	});
+	$('p.zip' + zip).data("latitude", loc.geometry.location.lat).data("longitude", loc.geometry.location.lng);
 	marker.addListener('click', function() {
 		var selector = 'p.zip' + zip;
 		$('p.highlight').removeClass('highlight');
@@ -162,5 +162,9 @@ function initializeMap() {
 // $(window).scroll(function(){
 //   $("#map").css({"margin-top": ($(window).scrollTop()) + "px", "margin-left":($(window).scrollLeft()+25) + "px"});
 // });
+
+$('.results').on('click','p', function(event) {
+	map.setCenter(new google.maps.LatLng($(this).data('latitude'), $(this).data('longitude')));
+});
 
 $(function(){watchSubmit();});
