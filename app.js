@@ -98,11 +98,25 @@ function setMap(data) {
 	map.setCenter(new google.maps.LatLng(loc.geometry.location.lat, loc.geometry.location.lng));
 }
 
+function displayMap() {
+	document.getElementById('map').style.display="block";
+	initializeMap();
+}
+
+function initializeMap() {
+	var myOptions = {
+		zoom: 8,
+		center: new google.maps.LatLng(0.0, 0.0),
+	}
+	map = new google.maps.Map(document.getElementById('map'), myOptions);
+}
+
 function watchSubmit() {
 	$('.js-search-form').submit(function(e) {
 		e.preventDefault();
 		var breed = $(this).find('.breed').val();
 		var zipCode = $(this).find('.zip').val();
+		$('#map').show();
 		deleteMarkers(markers)
 		getLongLatInitial(zipCode, setMap);
 		getDataFromPetFinder(breed, zipCode, displayResults);
@@ -112,7 +126,7 @@ function watchSubmit() {
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: 33.7073908, lng: -117.7666567},
-		zoom: 10
+		zoom: 8
 	});
 }
 

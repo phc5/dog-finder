@@ -8,6 +8,7 @@ img {
 }
 
 #map {
+	display:none;
 	height: 500px;
 	width: 600px;
 }
