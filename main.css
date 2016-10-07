@@ -15,11 +15,12 @@ img {
 
 p img {
 	float:right;
-	padding-right:50px;
 }
 
 p {
-	word-wrap: break-word;
+	font-family: 'PT Sans Caption', sans-serif;
+	/*word-wrap: break-word;*/
+	margin-right: 10px;
 }
 
 h1 {
@@ -29,8 +30,9 @@ h1 {
 
 #map {
 	display: none;
-	height: 400px;
-	width: 400px;
+	height: 600px;
+	width: 500px;
+	margin: auto;
 }
 
 .container {
@@ -52,8 +54,8 @@ h1 {
 }
 
 .results p {
-	height: 140px;
-	width: 250px;
+	height: 135px;
+	width: 255px;
 	float:left;
 }
 
@@ -62,6 +64,6 @@ h1 {
 }
 
 .highlight {
-	border: 2px solid black;
+	background-color: yellow;
 }
 

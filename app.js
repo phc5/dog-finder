@@ -50,8 +50,8 @@ function displayResults(data) {
 	if (data.petfinder.pets.pet) {
 		data.petfinder.pets.pet.forEach(function(dog) {
 			if (dog.media.photos) {
-				resultElement += '<p class=zip' + dog.contact.zip.$t + '><img src="' + dog.media.photos.photo[0].$t + '"><br>Name: ' + dog.name.$t + '<br>Age: ' + 
-				dog.age.$t + '<br>Zip: ' + dog.contact.zip.$t + '<br>Email: ' + dog.contact.email.$t + '</p>';
+				resultElement += '<p class="thumbnail zip' + dog.contact.zip.$t + '"><img src="' + dog.media.photos.photo[0].$t + '"><span>Name: ' + dog.name.$t + '<br>Age: ' + 
+				dog.age.$t + '<br>Zip: ' + dog.contact.zip.$t + '<br>Email: ' + dog.contact.email.$t + '</span></p>';
 				var zip = dog.contact.zip.$t;
 				if (dogZip[zip]) {
 					dogZip[zip] += ", " + dog.name.$t;
@@ -115,8 +115,7 @@ function watchSubmit() {
 		e.preventDefault();
 		var breed = $(this).find('.breed').val();
 		var zipCode = $(this).find('.zip').val();
-		// $('#map').show();
-		deleteMarkers(markers)
+		deleteMarkers(markers);
 		getLongLatInitial(zipCode, setMap);
 		getDataFromPetFinder(breed, zipCode, displayResults);
 	});
@@ -126,7 +125,7 @@ function watchSubmit() {
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: 33.7073908, lng: -117.7666567},
-		zoom: 8
+		zoom: 10
 	});
 }
 
@@ -138,8 +137,8 @@ function displayMap() {
 //found on stackoverflow to prevent map from displaying as empty map.
 function initializeMap() {
 	var myOptions = {
-		zoom: 8,
-		center: new google.maps.LatLng(0.0, 0.0),
+		center: {lat: 33.7073908, lng: -117.7666567},
+		zoom: 10
 	}
 	map = new google.maps.Map(document.getElementById('map'), myOptions);
 }
