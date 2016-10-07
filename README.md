@@ -8,5 +8,5 @@ Adopt A Dog allows users to find adoptable dogs in a specified location accordin
 * CSS
 * JavaScript
 * jQuery
-* PetFinder API
-* Google Maps API
+* PetFinder API: https://www.petfinder.com/developers/api-docs
+* Google Maps API: https://developers.google.com/maps/
