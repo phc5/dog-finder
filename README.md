@@ -13,4 +13,5 @@ Adopt A Dog allows users to find adoptable dogs in a specified location accordin
 
 ## Use
 To use this appication, simply clone the repository.
+
 cd into the project directory and open index.html in the browser. 
